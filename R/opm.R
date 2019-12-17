@@ -102,8 +102,10 @@ opm <- function(par, fn, gr=NULL, hess=NULL, lower=-Inf, upper=Inf,
           if ((control$kkt || hessian) && (ans$convergence != 9999)) {
              wgr <- gr
              if (is.null(wgr)) wgr <- control$defgrapprox
+#             kktres <- kktchk(ans$par, fn, wgr, hess=NULL, upper=NULL, lower=NULL, 
+#                    maximize=control$maximize, control=control, ...) 
              kktres <- kktchk(ans$par, fn, wgr, hess=NULL, upper=NULL, lower=NULL, 
-                    maxfn=control$maximize, control=control, ...) 
+                    control=control, ...) 
              ans$kkt1<-as.logical(kktres$kkt1)
              ans$kkt2<-as.logical(kktres$kkt2)
           }

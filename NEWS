@@ -8,6 +8,10 @@ NOTE: optimr is intended for CRAN and has a limited set of solvers to avoid
       of the appropriate library() call.
 
 TODO
+      o WARNING: This package is deprecated. No further development is
+        planned, and the maintainer intends to abandon it.
+     
+
       o Drop nmkb from methods for bounds if start is on bound
       o Troubles with NAMESPACE collisions NOT resolved. (nloptr ??)
       o Add nloptr methods -- there are a number and we need to choose how
@@ -30,6 +34,11 @@ TODO
 	Consider check to see if other package is loaded e.g., don't want
 	optimr and optimrx to be loaded simulataneously, but possibly R takes
 	care of that.
+
+
+VERSION 2019-12-11
+      o Remove maximize from kktchk usage in opm. (The results will still show
+        singularities, but curvature will be negative otherwise.)
 
 VERSION 2016-07-10
       o hessian=TRUE is NOT properly executed

@@ -143,7 +143,7 @@ optimr <- function(par, fn, gr=NULL, lower=-Inf, upper=Inf,
 #          print(ans)
 
         }
-        if (class(ans)[1] == "try-error") { # bad result -- What to do?
+        if (inherits(ans,"try-error")) { # bad result -- What to do?
 		ans<-list() # ans not yet defined, so set as list
                 ans$convergence <- 9999 # failed in run
                 errmsg <- "optim method failure\n"
@@ -171,7 +171,7 @@ optimr <- function(par, fn, gr=NULL, lower=-Inf, upper=Inf,
 	}
         ans <- try(nlminb(start=spar, objective=efn, gradient=egr, lower=slower, 
 		upper=supper, control=mcontrol,  ...))
-        if (class(ans)[1] != "try-error") {
+        if (! inherits(ans,"try-error")) {
 		# Translate output to common format and names
         	ans$value<-ans$objective
                 ans$par <- ans$par*pscale
@@ -211,7 +211,7 @@ optimr <- function(par, fn, gr=NULL, lower=-Inf, upper=Inf,
           if (! is.null(control$trace) && (control$trace > 0) ) {print.level <- 2 } 
           ans <- try(nlm(f=nlmfn, p=spar, iterlim=iterlim, print.level=print.level, ...))
         }
-        if (class(ans)[1] != "try-error") {
+        if (! inherits(ans,"try-error")) {
 		if (ans$code == 1 || ans$code == 2 || ans$code == 3) ans$convergence <- 0
 		if (ans$code == 4) ans$convergence <- 1
                 if (ans$code == 5) ans$convergence <- 5
@@ -251,7 +251,7 @@ optimr <- function(par, fn, gr=NULL, lower=-Inf, upper=Inf,
 	} else {
    	   ans <- try(Rcgminu(par=spar, fn=efn, gr=egr, control=mcontrol, ...))
 	}
-        if (class(ans)[1] != "try-error") {
+        if (! inherits(ans,"try-error")) {
                 ans$par <- ans$par*pscale
 	        ans$message <- NA        
                 ans$hessian <- NULL
@@ -280,7 +280,7 @@ optimr <- function(par, fn, gr=NULL, lower=-Inf, upper=Inf,
 	} else {
    	   ans <- try(Rvmminu(par=spar, fn=efn, gr=egr, control=mcontrol, ...))
 	}
-        if (class(ans)[1] != "try-error") {
+        if (! inherits(ans,"try-error")) {
             ans$par <- ans$par*pscale
             ans$bdmsk <- NULL
         } else {
@@ -305,7 +305,7 @@ optimr <- function(par, fn, gr=NULL, lower=-Inf, upper=Inf,
         }
         ans <- try(hjn(spar, efn, lower=slower, upper=supper, bdmsk=bdmsk, 
                         control=control, ...))
-        if (class(ans)[1] != "try-error") {
+        if (! inherits(ans,"try-error")) {
             ## Need to check these carefully??
             ans$par <- ans$par*pscale
             ans$value <- ans$value*fnscale

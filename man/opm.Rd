@@ -14,12 +14,8 @@
 \description{
   General-purpose optimization wrapper function that calls other
   R tools for optimization, including the existing optim() function.
-  \code{optimx} also tries to unify the calling sequence to allow
-  a number of tools to use the same front-end. These include 
-  \code{spg} from the BB package, \code{ucminf}, \code{nlm}, \code{nlminb},
-  \code{Rtnmin}, \code{lbfgsb3}, \code{lbfgs}, \code{nmkb} and \code{hjkb}
-  from the dfoptim package, \code{uobyqa}, \code{newuoa} and \code{bobyqa} 
-  from the minqa package. 
+  Also tries to unify the calling sequence to allow
+  a number of tools to use the same front-end. 
 
   Note that 
   optim() itself allows Nelder--Mead, quasi-Newton and 
@@ -197,13 +193,11 @@ See the manual pages for \code{optim()} and the packages the DESCRIPTION \code{s
 }
 
 \seealso{
-  \code{\link[BB]{spg}}, \code{\link{nlm}}, \code{\link{nlminb}},
-  \code{\link[minqa]{bobyqa}}, \code{\link[Rcgmin]{Rcgmin}}, 
-  \code{\link[Rvmmin]{Rvmmin}}, \code{\link[ucminf]{ucminf}}, 
-  \code{\link[dfoptim]{nmkb}},
-  \code{\link[dfoptim]{hjkb}}.
+  \code{\link{nlm}}, \code{\link{nlminb}},
+  \code{\link[Rcgmin]{Rcgmin}}, 
+  \code{\link[Rvmmin]{Rvmmin}}, 
   \code{\link{optimize}} for one-dimensional minimization;
-  \code{\link{constrOptim}} or \code{\link[BB]{spg}} for linearly constrained optimization.
+  \code{\link{constrOptim}} for linearly constrained optimization.
 }
 
 \examples{

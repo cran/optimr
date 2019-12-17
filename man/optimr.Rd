@@ -1,8 +1,4 @@
-% File src/library/stats/man/optim.Rd
-% Part of the R package, http://www.R-project.org
-% Copyright 1995-2007 R Core Development Team
-% Distributed under GPL 2 or later
-
+% version for 20191210 optimr package
 \name{optimr}
 \alias{optimr}
 \encoding{UTF-8}
@@ -13,9 +9,7 @@
   General-purpose optimization wrapper function that calls other
   R tools for optimization, including the existing optim() function.
   \code{optim} also tries to unify the calling sequence to allow
-  a number of tools to use the same front-end. These include 
-  \code{spg} from the BB package, \code{ucminf}, \code{nlm}, and 
-  \code{nlminb}. Note that 
+  a number of tools to use the same front-end. Note that 
   optim() itself allows Nelder--Mead, quasi-Newton and 
   conjugate-gradient algorithms as well as box-constrained optimization 
   via L-BFGS-B. Because SANN does not return a meaningful convergence code

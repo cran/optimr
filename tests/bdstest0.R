@@ -41,14 +41,16 @@ print(alb)
 
 alhn<-optimr(xx, bt.f, lower=lower, upper=upper, method="hjn", control=list(trace=3))
 
-alkkt <- optextras::kktchk(alb$par, bt.f, bt.g, hess=NULL, upper=upper, lower=lower,  maxfn=FALSE, control=list(trace=1))
+alkkt <- optextras::kktchk(alb$par, bt.f, bt.g, hess=NULL, upper=upper, lower=lower, control=list(trace=1))
 print(alkkt)
 
 
 #sink()
 cat("All bounded methods attempt with opm\n")
 
-allbds <- opm(xx, bt.f, bt.g, lower=lower, upper=upper, method="ALL", control=list(trace=1))
+mlist <- c("L-BFGS-B", "nlminb", "Rcgmin", "Rvmmin", "hjn")
+
+allbds <- opm(xx, bt.f, bt.g, lower=lower, upper=upper, method=mlist, control=list(trace=1))
 summary(allbds, order=value)
 
 cat("Now force a mask upper=lower for parameter 3 and see what happens\n")
